@@ -6,6 +6,7 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EventService } from './services/event.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,6 +14,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes), 
     provideClientHydration(),
     importProvidersFrom(HttpClientModule, BrowserModule, BrowserAnimationsModule),
-    MessageService
+    MessageService,
+    EventService
   ]
 };

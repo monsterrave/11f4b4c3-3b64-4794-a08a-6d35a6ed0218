@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
 import { Event } from '../interfaces/event';
 
 @Injectable({
@@ -8,15 +7,36 @@ import { Event } from '../interfaces/event';
 })
 export class EventService {
 
-  addEvent$ = new Subject<Event>();
-  removeEvent$ = new Subject<Event>();
+  eventsList: Event[] = [];
+  eventsShoppingCart: Event[] = [];
 
   constructor(private httpClient: HttpClient) {
-    this.addEvent$.asObservable();
-    this.removeEvent$.asObservable();
+    this.fetchEvents();
   }
 
-  public fetchEvents(): Observable<any> {
-    return this.httpClient.get('https://teclead-ventures.github.io/data/london-events.json');
+  public fetchEvents() {
+    this.httpClient.get<any>('https://teclead-ventures.github.io/data/london-events.json').subscribe((events) => {
+      this.eventsList = events;
+    });
+  }
+
+  public setEventList(events: Event[]) {
+    this.eventsList = events;
+  }
+
+  public getEventList(): Event[] {
+    return this.eventsList;
+  }
+
+  public moveToEventList(event: Event): void {
+    this.eventsList.push(event);
+  }
+
+  public moveToShoppingCart(event: Event): void {
+    this.eventsShoppingCart.push(event);
+  }
+
+  public getShoppingCartList(): Event[] {
+    return this.eventsShoppingCart;
   }
 }
