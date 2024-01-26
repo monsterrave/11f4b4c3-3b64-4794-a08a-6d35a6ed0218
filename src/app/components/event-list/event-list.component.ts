@@ -28,7 +28,7 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
     AutoCompleteModule
   ],
   templateUrl: './event-list.component.html',
-  styleUrl: './event-list.component.sass'
+  styleUrl: './event-list.component.scss'
 })
 export class EventListComponent implements OnInit {
 
