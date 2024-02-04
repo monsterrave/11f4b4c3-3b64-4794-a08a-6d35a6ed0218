@@ -9,12 +9,12 @@ import { routes } from "./app.routes";
 import { EventService } from "./services/event.service";
 
 export const appConfig: ApplicationConfig = {
-    providers: [
-        provideHttpClient(withFetch()),
-        provideRouter(routes),
-        provideClientHydration(),
-        importProvidersFrom(HttpClientModule, BrowserModule, BrowserAnimationsModule),
-        MessageService,
-        EventService
-    ]
+  providers: [
+    provideHttpClient(withFetch()),
+    provideRouter(routes),
+    provideClientHydration(),
+    importProvidersFrom(HttpClientModule, BrowserModule, BrowserAnimationsModule),
+    MessageService,
+    EventService
+  ]
 };

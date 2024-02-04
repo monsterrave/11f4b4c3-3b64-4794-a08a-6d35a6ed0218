@@ -6,11 +6,11 @@ import { provideServerRendering } from "@angular/platform-server";
 import { appConfig } from "./app.config";
 
 const serverConfig: ApplicationConfig = {
-    providers: [
-        provideServerRendering(),
-        BrowserModule,
-        BrowserAnimationsModule
-    ]
+  providers: [
+    provideServerRendering(),
+    BrowserModule,
+    BrowserAnimationsModule
+  ]
 };
 
 export const config = mergeApplicationConfig(appConfig, serverConfig);
