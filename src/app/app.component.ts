@@ -12,7 +12,7 @@ import { ToastModule } from 'primeng/toast';
     RouterOutlet, 
     CommonModule,
     EventListComponent, 
-    ShoppingCartComponent, 
+          ShoppingCartComponent, 
     ToastModule,
     RouterOutlet 
   ],
