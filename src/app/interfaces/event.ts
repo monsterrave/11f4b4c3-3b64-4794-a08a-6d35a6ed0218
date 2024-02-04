@@ -1,7 +1,6 @@
 import { Artist } from "./artist";
 import { Venue } from "./venue";
 
-
 export interface Event {
     _id: string,
     title: string,
