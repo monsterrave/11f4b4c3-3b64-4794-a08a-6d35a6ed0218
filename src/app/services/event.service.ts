@@ -1,12 +1,12 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Event } from '../interfaces/event';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+
+import { Event } from "../interfaces/event";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class EventService {
-
   eventsList: Event[] = [];
   eventsShoppingCart: Event[] = [];
 
@@ -15,7 +15,7 @@ export class EventService {
   }
 
   public fetchEvents() {
-    this.httpClient.get<any>('https://teclead-ventures.github.io/data/london-events.json').subscribe((events) => {
+    this.httpClient.get<any>("https://teclead-ventures.github.io/data/london-events.json").subscribe((events) => {
       this.eventsList = events;
     });
   }
