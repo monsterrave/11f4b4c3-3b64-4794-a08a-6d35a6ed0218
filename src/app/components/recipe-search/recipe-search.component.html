@@ -1,0 +1,13 @@
+<div class="p-d-flex p-jc-center p-ai-center p-flex-column" style="height: 100vh;">
+    <div class="p-mb-4">
+        <form [formGroup]="recipeSearchForm" class="p-d-flex p-flex-column p-ai-center">
+            <div class="p-mb-4">
+                <h1 class="p-text-center">Welcome to Recipe Search</h1>
+            </div>
+            <div class="p-d-flex p-jc-center p-ai-center">
+                <input formControlName="search" type="text" pInputText placeholder="Search for recipes" class="p-inputtext p-mr-2"/>
+                <button pButton type="submit" label="Search" class="p-button p-button-primary"></button>
+            </div>
+        </form>
+    </div>
+</div>

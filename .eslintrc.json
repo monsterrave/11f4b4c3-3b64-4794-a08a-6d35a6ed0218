@@ -30,6 +30,7 @@
           120
         ],
         "simple-import-sort/imports": "error",
+        "linebreak-style": ["error", "windows"],
         "simple-import-sort/exports": "error",
         // eslint-plugin-unused-imports rules
         "unused-imports/no-unused-imports": "error",

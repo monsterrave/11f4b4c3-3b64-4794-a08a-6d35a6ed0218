@@ -2,9 +2,7 @@ import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 import { ToastModule } from "primeng/toast";
-
-import { EventListComponent } from "./components/event-list/event-list.component";
-import { ShoppingCartComponent } from "./components/shopping-cart/shopping-cart.component";
+import { RecipeSearchComponent } from "./components/recipe-search/recipe-search.component";
 
 @Component({
   selector: "app-root",
@@ -12,8 +10,7 @@ import { ShoppingCartComponent } from "./components/shopping-cart/shopping-cart.
   imports: [
     RouterOutlet,
     CommonModule,
-    EventListComponent,
-    ShoppingCartComponent,
+    RecipeSearchComponent,
     ToastModule,
     RouterOutlet
   ],
@@ -21,5 +18,5 @@ import { ShoppingCartComponent } from "./components/shopping-cart/shopping-cart.
   styleUrl: "./app.component.sass"
 })
 export class AppComponent {
-  title = "Super Duper Events";
+  title = "Super Duper Recipes!";
 }
