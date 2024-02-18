@@ -6,7 +6,7 @@ import { provideRouter } from "@angular/router";
 import { MessageService } from "primeng/api";
 
 import { routes } from "./app.routes";
-import { EventService } from "./services/event.service";
+import { RecipesService } from "./services/recipes.service";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +15,6 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     importProvidersFrom(HttpClientModule, BrowserModule, BrowserAnimationsModule),
     MessageService,
-    EventService
+    RecipesService
   ]
 };
