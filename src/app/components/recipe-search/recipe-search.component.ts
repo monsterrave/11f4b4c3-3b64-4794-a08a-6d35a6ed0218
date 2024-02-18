@@ -8,9 +8,11 @@ import { debounceTime, Subscription } from "rxjs";
 import { ReactiveFormsModule } from '@angular/forms';
 import { RecipesService } from "../../services/recipes.service";
 import { ToastMessageService } from "../../services/toast-message.service";
+import { CarouselModule } from 'primeng/carousel';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @Component({
-  selector: "app-recipe-search",
+  selector: "sdr-recipe-search",
   standalone: true,
   imports: [
     CommonModule,
@@ -19,6 +21,8 @@ import { ToastMessageService } from "../../services/toast-message.service";
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
+    CarouselModule,
+    InputTextareaModule,
   ],
   templateUrl: "./recipe-search.component.html",
   styleUrl: "./recipe-search.component.scss"
@@ -26,14 +30,35 @@ import { ToastMessageService } from "../../services/toast-message.service";
 export class RecipeSearchComponent implements OnInit, OnDestroy {
   subscription: Subscription | undefined;
   recipeSearchForm = new FormGroup({
-    search: new FormControl("")
+    search: new FormControl(""),
+    summary: new FormControl("")
   });
   suggestions = [];
+  responsiveOptions: any = [];
+  summary: any;
 
   constructor(private recipesService: RecipesService, private toastService: ToastMessageService) {}
 
   ngOnInit(): void {
     this.subscription = this.searchRecipesOnValueChange();
+
+    this.responsiveOptions = [
+      {
+          breakpoint: '1199px',
+          numVisible: 1,
+          numScroll: 1
+      },
+      {
+          breakpoint: '991px',
+          numVisible: 2,
+          numScroll: 1
+      },
+      {
+          breakpoint: '767px',
+          numVisible: 1,
+          numScroll: 1
+      }
+    ];
   }
 
   searchRecipesOnValueChange(): Subscription | undefined {
@@ -46,8 +71,15 @@ export class RecipeSearchComponent implements OnInit, OnDestroy {
 
   searchRecpies(searchTerm: any, page = "5"): void {
     this.recipesService.searchRecipes(searchTerm, page).subscribe((response: any) => {
-      this.suggestions = response;
+      this.suggestions = response.results;
       console.log(this.suggestions);
+    });
+  }
+
+  showRecipeSummary(recipeSummaryId: string) {
+    this.recipesService.searchSummaryByRecipeId(recipeSummaryId).subscribe((response: any) => {
+      this.summary = response.summary;
+      this.recipeSearchForm.get("summary")?.setValue(this.summary);
     });
   }
 

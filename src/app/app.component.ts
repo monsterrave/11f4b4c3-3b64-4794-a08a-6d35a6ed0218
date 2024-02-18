@@ -5,7 +5,7 @@ import { ToastModule } from "primeng/toast";
 import { RecipeSearchComponent } from "./components/recipe-search/recipe-search.component";
 
 @Component({
-  selector: "app-root",
+  selector: "sdr-root",
   standalone: true,
   imports: [
     RouterOutlet,

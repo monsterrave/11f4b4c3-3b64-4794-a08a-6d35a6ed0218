@@ -1,13 +1,27 @@
-<div class="p-d-flex p-jc-center p-ai-center p-flex-column" style="height: 100vh;">
-    <div class="p-mb-4">
-        <form [formGroup]="recipeSearchForm" class="p-d-flex p-flex-column p-ai-center">
-            <div class="p-mb-4">
-                <h1 class="p-text-center">Welcome to Recipe Search</h1>
-            </div>
-            <div class="p-d-flex p-jc-center p-ai-center">
-                <input formControlName="search" type="text" pInputText placeholder="Search for recipes" class="p-inputtext p-mr-2"/>
-                <button pButton type="submit" label="Search" class="p-button p-button-primary"></button>
-            </div>
-        </form>
-    </div>
+<div class="flex flex-column justify-content-center align-itmes-center" style="height: 100vh;">
+    <form [formGroup]="recipeSearchForm" class="flex flex-column align-items-center">
+        <div class="p-mb-4">
+            <h1>SUPER DUPER RECIPES !</h1>
+        </div>
+        <div class="flex justify-content-center align-items-center">
+            <input formControlName="search" type="text" pInputText placeholder="Search for recipes"
+                class="p-inputtext" />
+            <button pButton type="submit" label="Search" class="p-button p-button-primary"></button>
+        </div>
+        <p-carousel *ngIf="suggestions" [value]="suggestions" [numVisible]="3" [numScroll]="3" [circular]="false"
+            [responsiveOptions]="responsiveOptions">
+            <ng-template let-suggestion pTemplate="item">
+                <div class="border-1 surface-border border-round m-2 text-center py-5 px-3" (click)="showRecipeSummary(suggestion.id)">
+                    <div>
+                        <h4 class="mb-3">{{ suggestion.title }}</h4>
+                        <div class="mt-5 flex align-items-center justify-content-center gap-2">
+                            <img [src]="suggestion.image"
+                                [alt]="suggestion.title" class="w-6 shadow-2" />
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-carousel>
+        <textarea *ngIf="summary" rows="10" cols="30" pInputTextarea formControlName="summary"></textarea>
+    </form>
 </div>
