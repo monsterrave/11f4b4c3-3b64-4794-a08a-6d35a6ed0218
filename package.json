@@ -19,6 +19,16 @@
     "test:lint-rules:flat": "eslint index.js --config test-config/eslint.config.js --format json",
     "test:deprecated": "eslint-find-rules --deprecated index.js"
   },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write --parser typescript --print-width 140 --single-quote",
+      "eslint --fix"
+    ],
+    "*.html": ["prettier --write --parser html"],
+    "*.json": ["prettier --write --parser json"],
+    "*.scss": ["prettier --write --parser scss"],
+    "*.css": ["prettier --write --parser css"]
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^17.1.0",
@@ -77,8 +87,5 @@
     "lint-staged": "^15.2.2",
     "prettier": "3.2.5",
     "typescript": "~5.3.2"
-  },
-  "lint-staged": {
-    "*.js": "eslint --cache --fix"
   }
 }
