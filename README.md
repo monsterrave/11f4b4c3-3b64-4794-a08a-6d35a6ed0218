@@ -10,6 +10,8 @@ https://typescript-eslint.io/getting-started/
 
 https://eslint.org/
 
+[Configure ESlint](https://eslint.org/docs/latest/use/configure/configuration-files)
+
 
 ### eslint tutorial
 
