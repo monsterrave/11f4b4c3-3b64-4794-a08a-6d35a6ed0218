@@ -12,7 +12,7 @@ import { RecipeSearchComponent } from "./components/recipe-search/recipe-search.
     CommonModule,
     RecipeSearchComponent,
     ToastModule,
-    RouterOutlet
+RouterOutlet
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.sass"
