@@ -72,7 +72,6 @@ export class RecipeSearchComponent implements OnInit, OnDestroy {
   searchRecpies(searchTerm: any, page = "5"): void {
     this.recipesService.searchRecipes(searchTerm, page).subscribe((response: any) => {
       this.suggestions = response.results;
-      console.log(this.suggestions);
     });
   }
 
