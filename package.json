@@ -8,7 +8,26 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:11f4b4c3-3b64-4794-a08a-6d35a6ed0218": "node dist/11f4b4c3-3b64-4794-a08a-6d35a6ed0218/server/server.mjs",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "prepare": "husky install",
+    "prettier": "prettier --write .",
+    "test:prettier": "prettier --check .",
+    "test:eslint": "eslint .",
+    "test:lint-verify-fail": "eslint \"test-lint/*.{js,ts,vue}\" --config .eslintrc.base.js --format json",
+    "test:lint-verify-fail:flat": "eslint \"test-lint/*.{js,ts,vue}\" --config eslint.base.config.js --format json",
+    "test:lint-rules": "eslint index.js --config test-config/.eslintrc.js --format json",
+    "test:lint-rules:flat": "eslint index.js --config test-config/eslint.config.js --format json",
+    "test:deprecated": "eslint-find-rules --deprecated index.js"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write --parser typescript --print-width 140 --single-quote",
+      "eslint --fix"
+    ],
+    "*.html": ["prettier --write --parser html"],
+    "*.json": ["prettier --write --parser json"],
+    "*.scss": ["prettier --write --parser scss"],
+    "*.css": ["prettier --write --parser css"]
   },
   "private": true,
   "dependencies": {
@@ -46,21 +65,27 @@
     "@types/node": "^18.18.0",
     "@typescript-eslint/eslint-plugin": "6.19.0",
     "@typescript-eslint/parser": "6.19.0",
+    "cypress": "^13.6.4",
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard-with-typescript": "^43.0.1",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-unused-imports": "^3.0.0",
+    "husky": "^9.0.11",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "lint-staged": "^15.2.2",
+    "prettier": "3.2.5",
     "typescript": "~5.3.2"
   }
 }

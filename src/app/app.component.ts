@@ -12,10 +12,10 @@ import { RecipeSearchComponent } from "./components/recipe-search/recipe-search.
     CommonModule,
     RecipeSearchComponent,
     ToastModule,
-    RouterOutlet
+    RouterOutlet,
   ],
-  templateUrl: "./app.component.html",
-  styleUrl: "./app.component.sass"
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.sass',
 })
 export class AppComponent {
   title = "Super Duper Recipes!";
