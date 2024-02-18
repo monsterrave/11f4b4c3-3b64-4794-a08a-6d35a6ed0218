@@ -9,7 +9,15 @@
     "test": "ng test",
     "serve:ssr:11f4b4c3-3b64-4794-a08a-6d35a6ed0218": "node dist/11f4b4c3-3b64-4794-a08a-6d35a6ed0218/server/server.mjs",
     "lint": "ng lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prettier": "prettier --write .",
+    "test:prettier": "prettier --check .",
+    "test:eslint": "eslint .",
+    "test:lint-verify-fail": "eslint \"test-lint/*.{js,ts,vue}\" --config .eslintrc.base.js --format json",
+    "test:lint-verify-fail:flat": "eslint \"test-lint/*.{js,ts,vue}\" --config eslint.base.config.js --format json",
+    "test:lint-rules": "eslint index.js --config test-config/.eslintrc.js --format json",
+    "test:lint-rules:flat": "eslint index.js --config test-config/eslint.config.js --format json",
+    "test:deprecated": "eslint-find-rules --deprecated index.js"
   },
   "private": true,
   "dependencies": {
